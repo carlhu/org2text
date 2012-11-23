@@ -1,3 +1,6 @@
+Org2Text
+========
+
 Let's say I have created following outline in Emacs's Orgmode:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My Todo List
