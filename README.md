@@ -49,7 +49,7 @@ Although I am happy that the Orgmode uses a plain text file, reading this in a n
 1. *Drawers are indicated with `|`*. Drawers can be quite lengthy: I often put the idea in the heading, and write out the prose in the drawer, so I need a clear indication regarding which heading drawer text refers to. `|` is the tradition email blockquotes now use, and Org2Text also uses this.
 1. *Tags*. Tags at the end of headings is hard to parse since they are not vertically aligned. Put them in the front and surround them with the latin quote characters: `‹URGENT›`. 
 
-The following is a transform of the above outline satisfying these five requirements:
+The following is a transform of the above outline satisfying these five requirements. The tabs are spaces in the raw text:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  At work 
      • ‹URGENT› Call John 
