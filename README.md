@@ -1,44 +1,41 @@
-org2text
-========
-
 Let's say I have created following outline in Emacs's Orgmode:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My Todo List
-\* At work
-     \* Call John :URGENT:
-     \* Optimize the logging system :MEDIUM:
-           \* Eliminate callout and process switch 
+* At work
+     * Call John :URGENT:
+     * Optimize the logging system :MEDIUM:
+           * Eliminate callout and process switch 
              so that context switch costs and cache 
              coherency is improved.
-\* At home
-     \* Buy supplies :OPTIONAL:
-           \* Address
+* At home
+     * Buy supplies :OPTIONAL:
+           * Address
              Pearl Paint
              111 8th Avenue
              New York City
-           \* Pencil
-           \* Eraser
-     \* Clean up apartment
+           * Pencil
+           * Eraser
+     * Clean up apartment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I find this presentation of my thoughts clear and simple: Orgmode's decisions seem to me to be optimal. Mr. Dominik is a marvelously talented engineer and designer. Now, if I want to send a collegague the outline, I can simply send him the text file. Unfortunately, the raw text file for this outline is:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My Todo List
-\* At work
-\*\* Call John :URGENT:
-\*\* Optimize the logging system :MEDIUM
-\*\*\* Eliminate callout and process switch 
+* At work
+** Call John :URGENT:
+** Optimize the logging system :MEDIUM
+*** Eliminate callout and process switch 
 so that context switch costs and cache 
 coherency is improved.
-\* At home
-\*\* Buy supplies :OPTIONAL:
-\*\*\* Address
+* At home
+** Buy supplies :OPTIONAL:
+*** Address
 Pearl Paint
 111 8th Avenue
 New York City
-\*\* Pencil
-\*\* Eraser
-\* Clean up apartment
+** Pencil
+** Eraser
+* Clean up apartment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Although I am happy that the Orgmode uses a plain text file, reading this in a non-Emacs editor is an uninviting experience. 'Drawers' (i.e. 'Pearl Paint...') are not properly aligned with the heading (i.e. 'Address'). No indentation is used. Long lines that wrap do not stay aligned. Since I often need to share my thoughts with non-Emacs users, I designed a solution optimized for my own needs, Org2Text. Org2Text implements the following requirements:
@@ -49,7 +46,6 @@ Although I am happy that the Orgmode uses a plain text file, reading this in a n
 1. *Drawers are indicated with `|`*. Drawers can be quite lengthy: I often put the idea in the heading, and write out the prose in the drawer, so I need a clear indication regarding which heading drawer text refers to. `|` is the tradition email blockquotes now use, and Org2Text also uses this.
 1. *Tags*. Tags at the end of headings is hard to parse since they are not vertically aligned. Put them in the front and surround them with the latin quote characters: `‹URGENT›`. 
 
-The following is a transform of the above outline satisfying these five requirements:
 The following is a transform of the above outline satisfying these five requirements:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  At work 
@@ -65,7 +61,3 @@ The following is a transform of the above outline satisfying these five requirem
      • Pencil 
      • Eraser 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-See [this](http://carlhu.com/emacs_orgmode_in_plaintext) for details.
