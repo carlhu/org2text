@@ -61,3 +61,26 @@ The following is a transform of the above outline satisfying these five requirem
      • Pencil 
      • Eraser 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Typically, I am editing large outline such as my Todo list and I'd like to share one part of it with a colleague who is helping me. I select that section and hit `C-<f5>`. The eLisp code below does this: it routes the highlighted text (or "region", in Emacs parlance) to the standard input of Org2Text, then routes the standard output of the Python program to a new Emacs buffer for use as desired. 
+
+<pre class="prettyprint lang-lisp">
+(defun my-export-orgmode ()
+  (interactive)
+  (save-buffer)
+  (save-some-buffers t)
+  (shell-command-on-region (mark) (point)
+                           (format
+                               "/bin/bash -c \"cd /home/carlhu/Desktop/personal;  /usr/bin/python /home/carlhu/Desktop/personal/export_org.py %s; \""
+                               (buffer-file-name))
+                           nil
+                           nil
+                           nil
+                           )
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (define-key org-mode-map (kbd "C-f5") 'my-export-orgmode)
+             ))
+</pre>
+
+Good outlining to you, sir! 
